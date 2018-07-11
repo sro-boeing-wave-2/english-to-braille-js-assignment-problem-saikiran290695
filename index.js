@@ -11,7 +11,7 @@ function respond() {
   const brailmap = new Map(englishToBrailleLiteralSet); //  convert 2D to MAP's
   const data = document.getElementById('sourceLangText').value; //  get input text from div
   const splitdata = data.split(''); //  convert text to array
-  let condata = [];
+  let condata = '';
   splitdata.forEach((element) => {
     condata += brailmap.get(element);
   });
