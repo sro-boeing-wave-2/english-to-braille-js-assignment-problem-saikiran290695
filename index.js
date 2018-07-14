@@ -7,17 +7,18 @@
  */
 import englishToBrailleLiteralSet from './english-to-braille.js';
 
+const brailmap = new Map(englishToBrailleLiteralSet); //  convert 2D to MAP's
 function respond() {
-  const brailmap = new Map(englishToBrailleLiteralSet); //  convert 2D to MAP's
   const data = document.getElementById('sourceLangText').value; //  get input text from div
   const splitdata = data.split(''); //  convert text to array
   let condata = '';
-  splitdata.forEach((element) => {
+  splitdata.map((element) => {
     condata += brailmap.get(element);
+    return condata;
   });
   document.getElementById('targetLangText').innerHTML = condata;
 }
 //  Wait till page gets loaded
-window.onload = function () {
+window.onload = () => {
   document.getElementById('btnConvertEnglishToBraille').addEventListener('click', respond);
 };
